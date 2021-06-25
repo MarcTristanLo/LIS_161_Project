@@ -22,6 +22,10 @@ def services ():
 def index ():
     return render_template ('index.html')
 
+@app.route ('/tutorpage')
+def tutorpage ():
+    return render_template ('tutorpage.html')
+
 @app.route ('/login')
 def login ():
     return render_template ('login.html')

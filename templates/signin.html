@@ -50,9 +50,11 @@
           <a class="nav-item nav-link" href="{{url_for('contact') }}">Contact</a>
           <a class="nav-item nav-link" href="{{url_for('tutee') }}">Sign up as Tutee</a>
           <a class="nav-item nav-link" href="{{url_for('login') }}">Log In</a>
+          <a class="nav-item nav-link" href="{{url_for('tutorpage') }}">Our Tutors</a>
         </div>
       </div>
     </nav>
+    <form action="/one" method="post">
     <div class="container">
       <main>
         <div class="py-5 text-center">
@@ -61,20 +63,11 @@
           <p class="lead" style="color:black">Do you enjoy teaching and want to help students amidst this online learning  setup? Join our community of tutors!</p>
         </div>
 
-          <div>
+          <div class="row g-3">
               <h4 class="mb-3" style="color:#1e3256">Tutor's Personal Information</h4>
-              <div class="row g-3">
-                <div class="col-4">
-                  <label for="firstName" class="form-label">First Name</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                </div>
-                <div class="col-4">
-                  <label for="lastName" class="form-label">Middle Name</label>
-                  <input type="text" class="form-control" id="middleName" placeholder="" value="" required>
-                </div>
-                <div class="col-4">
-                  <label for="lastName" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="col-12">
+                  <label for="firstName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="Last Name, Given Name, Middle Initial" value="" required>
                 </div>
                 <div class="col-3">
                   <label for="age" class="form-label">Age</label>
@@ -86,7 +79,7 @@
                 </div>
                 <div class="col-6">
                   <label for="contact" class="form-label">Contact Information</label>
-                  <input type="text" class="form-control" id="contact" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="contact" placeholder="09XXXXXXXXX" value="" required>
                 </div>
 
               <h4 class="mb-2" style="color:#1e3256">Educational Background</h4>
@@ -130,7 +123,7 @@
                   <div class="input-group">
                     <span class="input-group-text">Preferred Language: &ensp; &thinsp;</span>
                       <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option disabled selected value> -- Open this select menu -- </option>
                         <option value="1">English</option>
                         <option value="2">Filipino</option>
                         <option value="3">Both English and Filipino</option>
@@ -146,12 +139,12 @@
                 <div class="col-6">
                   <div class="input-group">
                     <span class="input-group-text">Schedule of Availability</span>
-                    <textarea class="form-control" placeholder="Please provide the day and time you are available to conduct your tutoring sessions." id="floatingTextarea" required></textarea>
+                    <textarea class="form-control" placeholder="i.e. Mondays (8:30 AM - 9:00 AM)" id="floatingTextarea" required></textarea>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group">
-                    <span class="input-group-text">Hobbies &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;</span>
+                    <span class="input-group-text">Hobbies &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;</span>
                     <textarea class="form-control" placeholder="What are your hobbies?" id="floatingTextarea"></textarea>
                   </div>
                 </div>
@@ -185,21 +178,21 @@
                     <label class="form-check-label" for="No">No</label>
                   </div>
 
-              <hr class="my-3">
-                <div class="row g-2">
+              <hr class="my-2">
+                  <div class="row g-2">
                     <div class="col-md">
-                       <button class="w-100 btn btn-lg btn-primary" type="submit" value="Submit"> <b style="background-color:#3bb1a2, color:#FFFFFF"> SUBMIT </b> </button>
+                       <button class="w-100 btn btn-lg" type="submit" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> SUBMIT </b> </button>
                     </div>
                     <div class="col-md">
-                       <button class="w-100 btn btn-lg btn-primary" type="reset" value="Reset"> <b style="background-color:#3bb1a2, color:#FFFFFF"> RESET </b> </button>
+                       <button class="w-100 btn btn-lg" type="reset" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> RESET </b> </button>
                     </div>
-                </div>
+                  </div>
               </div>
           </div>
       </main>
 
-      <footer class="my-3 text-muted text-center text-small">\
-      <p class="mb-1">&copy; 2021 The Academic Medic </p>
+      <footer class="my-3 text-muted text-center text-small">
+      <p class="mb-1" style="color:black">&copy; 2021 The Academic Medic </p>
 
       <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
