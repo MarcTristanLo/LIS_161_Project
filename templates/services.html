@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title> The Academic Medic </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
+{%extends 'base.html' %}
+
+{%block content %}
+
       <section class="sub-header">
           <nav>
-            <a href="index.html"><img src="images/academic.png"></a>
+            <a href="index.html"><img src="static/img/academic.png"></a>
             <div class="nav-links" id="navLinks">
                 <i class="fa fa-times" onclick="hideMenu()"></i>
               <ul>
-                   <li><a href="index.html">HOME</a></li>
-                  <li><a href="about.html">ABOUT</a></li>
-                  <li><a href="services.html">SERVICES</a></li>
-                  <li><a href="contact.html">CONTACT</a></li>
-                  <li><a href="">SIGN UP AS A TUTOR</a></li>
-                  <li><a href="">SIGN UP AS A TUTEE</a></li>
-                  <li><a href="">LOG IN</a></li>
+                  <li><a href="{{url_for('index') }}">HOME</a></li>
+                  <li><a href="{{url_for('about') }}">ABOUT</a></li>
+                  <li><a href="{{url_for('services') }}">SERVICES</a></li>
+                  <li><a href="{{url_for('contact') }}">CONTACT</a></li>
+                  <li><a href="{{url_for('signin') }}">SIGN UP AS A TUTOR</a></li>
+                  <li><a href="{{url_for('tutee') }}">SIGN UP AS A TUTEE</a></li>
+                  <li><a href="{{url_for('login') }}">LOG IN</a></li>
                 </ul>
               </div>
               <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -36,19 +29,19 @@
 </p>
      <div class="row">
         <div class="service-col">
-            <img src="images/elementary.png">
+            <img src="static/img/elementary.png">
             <div class="layer">
                 <h3> ELEMENTARY </h3>
             </div>
         </div>
         <div class="service-col">
-            <img src="images/highschool.png">
+            <img src="static/img/highschool.png">
             <div class="layer">
                 <h3> HIGHSCHOOL </h3>
             </div>
         </div>
         <div class="service-col">
-            <img src="images/college.png">
+            <img src="static/img/college.png">
             <div class="layer">
                 <h3> COLLEGE </h3>
             </div>
@@ -96,5 +89,5 @@
         navLinks.style.right = "-200px";
     }
       </script>
-  </body>
-</html>
+
+{% endblock %}

@@ -14,7 +14,7 @@
 
 
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -34,133 +34,153 @@
 
     <link href="form-validation.css" rel="stylesheet">
   </head>
-  <body class="bg-light">
+  <body>
+    {%extends 'base.html' %}
 
-<div class="container">
-  <main>
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="static/img/aa.png" alt="" style="width:100%;max-width:400px">
-      <h2 style="color:#1e3256">Sign up as Tutee</h2>
-      <p class="lead">Academic Medic is a flexible online tutoring space. Find an online tutor for your personal online learning needs. Sign up and start getting academically better today!</p>
-    </div>
-
-      <div>
-        <h4 class="mb-3" style="color:#1e3256">Tutee's Personal Information</h4>
-          <div class="row g-3">
-            <div class="col-4">
-              <label for="firstName" class="form-label">First Name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-            </div>
-            <div class="col-4">
-              <label for="lastName" class="form-label">Middle Name</label>
-              <input type="text" class="form-control" id="middleName" placeholder="" value="" required>
-            </div>
-            <div class="col-4">
-              <label for="lastName" class="form-label">Last Name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-            </div>
-            <div class="col-3">
-              <label for="age" class="form-label">Age</label>
-              <input type="text" class="form-control" id="age" placeholder="" value="" required>
-            </div>
-            <div class="col-3">
-              <label for="gender" class="form-label">Gender</label>
-              <input type="text" class="form-control" id="gender" placeholder="" value="" required>
-            </div>
-            <div class="col-6">
-              <label for="contact" class="form-label">Contact Information</label>
-              <input type="text" class="form-control" id="contact" placeholder="" value="" required>
-            </div>
-            <label style="color: #1e3256"> <b> <i> If tutee is below 18 years old: </i> </b> </label>
-            <div class="col-4">
-              <label for="Parent" class="form-label">Name of Parent/Guardian </label>
-              <input type="text" class="form-control" id="Parent" placeholder="" value="" required>
-            </div>
-            <div class="col-4">
-              <label for="Relationship" class="form-label">Relationship to Tutee</label>
-              <input type="text" class="form-control" id="Relationship" placeholder="" value="" required>
-            </div>
-            <div class="col-4">
-              <label for="contactinfo" class="form-label">Contact Information</label>
-              <input type="text" class="form-control" id="contactinfo" placeholder="" value="" required>
-            </div>
-
-        <h4 class="mb-2" style="color:#1e3256">Tutoring Information</h4>
-            <div class="col-6">
-              <div class="input-group">
-                <span class="input-group-text">Educational Level &ensp;</span>
-                <input type="text" aria-label="Primary" class="form-control" placeholder="What grade are you currently in?">
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="input-group">
-                <span class="input-group-text">Preferred Language: </span>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">English</option>
-                    <option value="2">Filipino</option>
-                    <option value="3">Both English and Filipino</option>
-                  </select>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="input-group">
-                <span class="input-group-text">Preferred Subject/s </span>
-                <textarea class="form-control" placeholder="What subject/s or topic/s would you want your tutor to teach you?" id="floatingTextarea"></textarea>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="input-group">
-                <span class="input-group-text">Hobbies &emsp; &emsp; &emsp; &emsp;</span>
-                <textarea class="form-control" placeholder="What are your hobbies?" id="floatingTextarea"></textarea>
-              </div>
-            </div>
-        <h4 class="mb-2" style="color:#1e3256">Log in Credentials</h4>
-            <div class="form-floating">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email address</label>
-            </div>
-            <div class="col-6">
-              <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Enter Password">
-                <label for="floatingPassword">Password</label>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-floating">
-                <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password">
-                <label for="floatingPassword">Confirm Password</label>
-              </div>
-            </div>
-        <hr class="my-3">
-            <label> <b style="color:#1e3256"> Are you from Lagro High School? </b> </label>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="Yes">
-                <label class="form-check-label" for="Yes">Yes</label>
-              </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="No">
-                <label class="form-check-label" for="No">No</label>
-              </div>
-        <hr class="my-3">
-          <div class="row g-2">
-            <div class="col-md">
-               <button class="w-100 btn btn-lg" type="submit" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> SUBMIT </b> </button>
-            </div>
-            <div class="col-md">
-               <button class="w-100 btn btn-lg" type="reset" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> RESET </b> </button>
+    {%block content %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-item nav-link active" href="{{url_for('index') }}">Home </a>
+              <a class="nav-item nav-link" href="{{url_for('about') }}">About</a>
+              <a class="nav-item nav-link" href="{{url_for('services') }}">Services</a>
+              <a class="nav-item nav-link" href="{{url_for('contact') }}">Contact</a>
+              <a class="nav-item nav-link" href="{{url_for('signin') }}">Sign up as Tutor</a>
+              <a class="nav-item nav-link" href="{{url_for('login') }}">Log In</a>
             </div>
           </div>
-        </form>
-      </div>
-    </div>
-  </main>
+        </nav>
+        <div class="container">
+          <main>
+            <div class="py-5 text-center">
+              <img class="d-block mx-auto mb-4" src="static/img/aa.png" alt="" style="width:100%;max-width:400px">
+              <h2 style="color:#1e3256">Sign up as Tutee</h2>
+              <p class="lead" style="color:black">Academic Medic is a flexible online tutoring space. Find an online tutor for your personal online learning needs. Sign up and start getting academically better today!</p>
+            </div>
 
-  <footer class="my-3 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2021 The Academic Medic </p>
+              <div>
+                <h4 class="mb-3" style="color:#1e3256">Tutee's Personal Information</h4>
+                  <div class="row g-3">
+                    <div class="col-4">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                    </div>
+                    <div class="col-4">
+                      <label for="lastName" class="form-label">Middle Name</label>
+                      <input type="text" class="form-control" id="middleName" placeholder="" value="" required>
+                    </div>
+                    <div class="col-4">
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                    </div>
+                    <div class="col-3">
+                      <label for="age" class="form-label">Age</label>
+                      <input type="text" class="form-control" id="age" placeholder="" value="" required>
+                    </div>
+                    <div class="col-3">
+                      <label for="gender" class="form-label">Gender</label>
+                      <input type="text" class="form-control" id="gender" placeholder="" value="" required>
+                    </div>
+                    <div class="col-6">
+                      <label for="contact" class="form-label">Contact Information</label>
+                      <input type="text" class="form-control" id="contact" placeholder="" value="" required>
+                    </div>
+                    <label style="color: #1e3256"> <b> <i> If tutee is below 18 years old: </i> </b> </label>
+                    <div class="col-4">
+                      <label for="Parent" class="form-label">Name of Parent/Guardian </label>
+                      <input type="text" class="form-control" id="Parent" placeholder="" value="" required>
+                    </div>
+                    <div class="col-4">
+                      <label for="Relationship" class="form-label">Relationship to Tutee</label>
+                      <input type="text" class="form-control" id="Relationship" placeholder="" value="" required>
+                    </div>
+                    <div class="col-4">
+                      <label for="contactinfo" class="form-label">Contact Information</label>
+                      <input type="text" class="form-control" id="contactinfo" placeholder="" value="" required>
+                    </div>
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+                <h4 class="mb-2" style="color:#1e3256">Tutoring Information</h4>
+                    <div class="col-6">
+                      <div class="input-group">
+                        <span class="input-group-text">Educational Level &ensp;</span>
+                        <input type="text" aria-label="Primary" class="form-control" placeholder="What grade are you currently in?">
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="input-group">
+                        <span class="input-group-text">Preferred Language: </span>
+                          <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">English</option>
+                            <option value="2">Filipino</option>
+                            <option value="3">Both English and Filipino</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="input-group">
+                        <span class="input-group-text">Preferred Subject/s </span>
+                        <textarea class="form-control" placeholder="What subject/s or topic/s would you want your tutor to teach you?" id="floatingTextarea"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="input-group">
+                        <span class="input-group-text">Hobbies &emsp; &emsp; &emsp; &emsp;</span>
+                        <textarea class="form-control" placeholder="What are your hobbies?" id="floatingTextarea"></textarea>
+                      </div>
+                    </div>
 
-      <script src="form-validation.js"></script>
+                <h4 class="mb-2" style="color:#1e3256">Log in Credentials</h4>
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                      <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Enter Password">
+                        <label for="floatingPassword">Password</label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Confirm Password">
+                        <label for="floatingPassword">Confirm Password</label>
+                      </div>
+                    </div>
+
+                <hr class="my-3">
+                    <label> <b style="color:#1e3256"> Are you from Lagro High School? </b> </label>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="Yes">
+                        <label class="form-check-label" for="Yes">Yes</label>
+                      </div>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="No">
+                        <label class="form-check-label" for="No">No</label>
+                      </div>
+
+                <hr class="my-3">
+                  <div class="row g-2">
+                    <div class="col-md">
+                       <button class="w-100 btn btn-lg" type="submit" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> SUBMIT </b> </button>
+                    </div>
+                    <div class="col-md">
+                       <button class="w-100 btn btn-lg" type="reset" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> RESET </b> </button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </main>
+
+          <footer class="my-3 text-muted text-center text-small">
+          <p class="mb-1">&copy; 2021 The Academic Medic </p>
+
+          <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+          <script src="form-validation.js"></script>
+
+    {% endblock %}
   </body>
 </html>

@@ -67,10 +67,26 @@ span.psw {
 }
 </style>
 </head>
+
 <body>
+{%extends 'base.html' %}
 
-<h2 style="color:#1e3256"> LOG IN FORM</h2>
-
+{%block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{{url_for('index') }}">Home </a>
+      <a class="nav-item nav-link" href="{{url_for('about') }}">About</a>
+      <a class="nav-item nav-link" href="{{url_for('services') }}">Services</a>
+      <a class="nav-item nav-link" href="{{url_for('contact') }}">Contact</a>
+      <a class="nav-item nav-link" href="{{url_for('signin') }}">Sign up as Tutee</a>
+      <a class="nav-item nav-link" href="{{url_for('tutee') }}">Sign up as Tutor</a>
+    </div>
+  </div>
+</nav>
 <form action="/action_page.php" method="post">
   <div class="imgcontainer">
     <img src="static/img/aa.png" alt="The Academic Medic Logo" style="width:100%;max-width:400px">
@@ -83,13 +99,13 @@ span.psw {
     <label for="psw" style="color:#1e3256"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button class="w-100 btn btn-lg" type="submit"> <b> Log in </b> </button>
+    <button type="submit" class="btn btn-primary">Log in</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
 
 </form>
-
+{% endblock %}
 </body>
 </html>
