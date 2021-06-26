@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
-    <title>Sign up as Tutor</title>
+    <title>Edit Tutor Profile</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
 
@@ -38,6 +38,7 @@
     {%extends 'base.html' %}
 
     {%block content %}
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,55 +54,55 @@
         </div>
       </div>
     </nav>
-    <form action="{{ url_for('processing') }}", method="post">
+    <form action="{{ url_for('update', tutor_id=tutor.id) }}", method="post">
+
     <div class="container">
       <main>
         <div class="py-5 text-center">
           <img class="d-block mx-auto mb-4" src="static/img/aa.png" alt="" style="width:100%;max-width:400px">
-          <h2 style="color:#1e3256">Sign up as Tutor</h2>
-          <p class="lead" style="color:black">Do you enjoy teaching and want to help students amidst this online learning  setup? Join our community of tutors!</p>
+          <h2 style="color:#1e3256">Edit Tutor's Profile</h2>
         </div>
 
           <div class="row g-3">
               <h4 class="mb-3" style="color:#1e3256">Tutor's Personal Information</h4>
                 <div class="col-12">
                   <label for="firstName" class="form-label">Name</label>
-                  <input type="text" class="form-control" name="tutor_name" id="firstName" placeholder="Last Name, Given Name, Middle Initial" value="" required/>
+                  <input type="text" class="form-control" name="tutor_name" id="firstName" placeholder="Last Name, Given Name, Middle Initial" value="{{ tutor.name }}" required/>
                 </div>
                 <div class="col-3">
                   <label for="age" class="form-label">Age</label>
-                  <input type="number" class="form-control" name="tutor_age" id="age" placeholder="" value="" required>
+                  <input type="number" class="form-control" name="tutor_age" id="age" placeholder="" value="{{ tutor.age }}" required>
                 </div>
                 <div class="col-3">
                   <label for="gender" class="form-label">Gender</label>
-                  <input type="text" class="form-control" name="tutor_gender" id="gender" placeholder="" onkeypress="return /[a-z]/i.test(event.key)" value="" required>
+                  <input type="text" class="form-control" name="tutor_gender" id="gender" placeholder="" onkeypress="return /[a-z]/i.test(event.key)" value="{{ tutor.gender }}" required>
                 </div>
                 <div class="col-6">
                   <label for="contact" class="form-label">Contact Information</label>
-                  <input type="number" class="form-control" name="tutor_contact" id="contact" placeholder="09XXXXXXXXX" value="" required>
+                  <input type="number" class="form-control" name="tutor_contact" id="contact" placeholder="09XXXXXXXXX" value="{{ tutor.contact }}" required>
                 </div>
                 <div class="col-12">
                   <label for="profilepic" class="form-label">Profile Picture</label>
-                  <input type="url" class="form-control" name="tutor_url" id="profilepic" placeholder="URL/Link for your Profile Picture" value="" required>
+                  <input type="url" class="form-control" name="tutor_url" id="profilepic" placeholder="URL/Link for your Profile Picture" value="{{ tutor.url }}" required>
                 </div>
 
               <h4 class="mb-2" style="color:#1e3256">Educational Background</h4>
                 <div class="input-group">
                     <span class="input-group-text">Elementary &thinsp;</span>
-                    <input type="text" aria-label="Primary" class="form-control" name="tutor_elementary" placeholder="School" required>
+                    <input type="text" aria-label="Primary" class="form-control" name="tutor_elementary" placeholder="School" value="{{ tutor.elementary }}" required>
                   </div>
                 <div class="input-group">
                     <span class="input-group-text">High School</span>
-                    <input type="text" aria-label="Primary" class="form-control" name="tutor_highschool" placeholder="School" required>
+                    <input type="text" aria-label="Primary" class="form-control" name="tutor_highschool" placeholder="School" value="{{ tutor.highschool}}" required>
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">College &emsp; &ensp; </span>
-                    <input type="text" aria-label="Primary" class="form-control" name="tutor_college" placeholder="School" required>
+                    <input type="text" aria-label="Primary" class="form-control" name="tutor_college" placeholder="School" value="{{ tutor.college }}" required>
                 </div>
 
               <h4 class="mb-2" style="color:#1e3256">Academic Achievements</h4>
                 <div class="form-floating">
-                  <textarea class="form-control" placeholder="Academic Achievements" name="tutor_academicachievements" id="floatingTextarea" required></textarea>
+                  <textarea class="form-control" placeholder="Academic Achievements" name="tutor_academicachievements" id="floatingTextarea" required> {{ tutor.academicachievements }} </textarea>
                   <label for="floatingTextarea">Awards Received - Year </label>
                 </div>
 
@@ -110,11 +111,22 @@
                   <form action="{{ url_for('processing') }}">
                     <div class="input-group">
                       <span class="input-group-text" >Preferred Type of Tutee: &ensp; &thinsp;</span>
-                        <select class="form-select" aria-label="Default select example" name="tutor_type" required>
-                          <option disabled selected value> -- Open this select menu -- </option>
+                        <select class="form-select" aria-label="Default select example" name="tutor_type" required><option disabled selected value> -- Open this select menu -- </option>
+                          {% if tutor.type == 'Elementary' %}
+                          <option value="Elementary" selected>Elementary</option>
+                          {% else %}
                           <option value="Elementary">Elementary</option>
+                          {% endif %}
+                          {% if tutor.type == 'Highschool' %}
+                          <option value="Highschool" selected>Highschool</option>
+                          {% else %}
                           <option value="Highschool">Highschool</option>
+                          {% endif %}
+                          {% if tutor.type == 'College' %}
+                          <option value="College" selected>College</option>
+                          {% else %}
                           <option value="College">College</option>
+                          {% endif %}
                         </select>
                     </div>
                   </form>
@@ -123,29 +135,40 @@
                   <div class="input-group">
                     <span class="input-group-text" >Preferred Language: &ensp; &thinsp;</span>
                       <select class="form-select" aria-label="Default select example" name="tutor_language" required>
-                        <option disabled selected value> -- Open this select menu -- </option>
+                        {% if tutor.language == 'English' %}
+                        <option value="English" selected>English</option>
+                        {% else %}
                         <option value="English">English</option>
+                        {% endif %}
+                        {% if tutor.language == 'Filipino' %}
+                        <option value="Filipino" selected>Filipino</option>
+                        {% else %}
                         <option value="Filipino">Filipino</option>
+                        {% endif %}
+                        {% if tutor.language == 'Both English and Filipino' %}
+                        <option value="Both English and Filipino" selected>Both English and Filipino</option>
+                        {% else %}
                         <option value="Both English and Filipino">Both English and Filipino</option>
+                        {% endif %}
                       </select>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="input-group">
                     <span class="input-group-text">Subject Expertise &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;</span>
-                    <textarea class="form-control" placeholder="Please provide the subjects and/or topics you can teach for your tutoring sessions." name="tutor_subject" id="floatingTextarea" required></textarea>
+                    <textarea class="form-control" placeholder="Please provide the subjects and/or topics you can teach for your tutoring sessions." name="tutor_subject" id="floatingTextarea" required> {{ tutor.subject }} </textarea>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="input-group">
                     <span class="input-group-text">Schedule of Availability</span>
-                    <textarea class="form-control" placeholder="i.e. Mondays (8:30 AM - 9:00 AM)" name="tutor_schedule" id="floatingTextarea" required></textarea>
+                    <textarea class="form-control" placeholder="i.e. Mondays (8:30 AM - 9:00 AM)" name="tutor_schedule" id="floatingTextarea" required> {{ tutor.schedule }} </textarea>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="input-group">
                     <span class="input-group-text">Hobbies &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &nbsp;</span>
-                    <textarea class="form-control" placeholder="What are your hobbies?" name="tutor_hobbies" id="floatingTextarea" required></textarea>
+                    <textarea class="form-control" placeholder="What are your hobbies?" name="tutor_hobbies" id="floatingTextarea" required> {{ tutor.hobbies }} </textarea>
                   </div>
                 </div>
 
@@ -181,10 +204,10 @@
               <hr class="my-2">
                   <div class="row g-2">
                     <div class="col-md">
-                       <button class="w-100 btn btn-lg" type="submit" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> SUBMIT </b> </button>
+                       <button class="w-100 btn btn-lg" type="submit" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> SAVE </b> </button>
                     </div>
                     <div class="col-md">
-                       <button class="w-100 btn btn-lg" type="reset" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> RESET </b> </button>
+                       <a class= "w-100 btn btn-lg" href="{{ url_for('tutor', tutor_id=tutor.id) }}" style="background-color:#3bb1a2"> <b style="color:#FFFFFF"> CANCEL </b> </button> </a>
                     </div>
                   </div>
               </div>

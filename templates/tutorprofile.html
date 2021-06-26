@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="color:black;"> {{ tutor.name }} </h1>
+<img src="{{ tutor.url }}" alt="">
+<ul>
+    <h3 style="color:black;"> Personal Information</h3>
+    <li>Age: {{ tutor.age}}</li>
+    <li>Gender: {{ tutor.gender}}</li>
+    <li>Contact Information: {{ tutor.contact}} </li> <br>
+    <h3 style="color:black;">Educational Background</h3>
+    <li>Elementary: {{ tutor.elementary}}</li>
+    <li>High School: {{ tutor.highschool}}</li>
+    <li>College: {{ tutor.college}}</li>
+    <li>Academic Achievements: {{ tutor.academicachievements}}</li> <br>
+    <h3 style="color:black;">Tutoring information</h3>
+    <li>Subject Expertise: {{ tutor.subject}}</li>
+    <li>Hobbies: {{ tutor.hobbies}}</li>
+    <li>Preferred Language: {{ tutor.language}}</li>
+    <li>Schedule of Availability: {{ tutor.schedule}}</li>
+</ul>
+<form action="{{ url_for('modify', tutor_type=tutor.type, tutor_id=tutor.id) }}" method="post">
+    <input class="btn btn-secondary" type="submit" value="Edit" name="action">
+    <input class="btn btn-danger" type="submit" value="Delete" name="action">
+
+
+</form>
+
+{% endblock %}

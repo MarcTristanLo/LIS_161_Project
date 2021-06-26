@@ -1,0 +1,6 @@
+<h1> List of {{ tutor_type }} Based Tutors </h1>
+<ul>
+    {% for tutor in tutors %}
+    <li> <a href="{{ url_for('tutor', tutor_id=tutor.id) }}">{{ tutor.name }}</a></li>
+    {% endfor %}
+</ul>
